@@ -7,6 +7,7 @@ def problem1():
 
 
 def problem2():
+
     li = [1, 2]
     s = 0
     i = 1
@@ -19,4 +20,32 @@ def problem2():
     return (print(f"s={s}"))
 
 
-problem2()
+def problem3(x):
+    import math
+    prime_f = []
+
+    def isprime(n):
+
+        if (n <= 1):
+            return False
+        if (n <= 3):
+            return True
+        if (n % 2 == 0 or n % 3 == 0):
+            for divisor in range(5, int(math.sqrt(n)) + 1, 6):
+                if n % divisor == 0 or n % (divisor + 2) == 0:
+                    return False
+        return True
+
+    k = 1
+    while (x > 1):
+        while (isprime(k) is False):
+            k += 1
+        while (x % k == 0):
+            x = x//k
+            prime_f.append(k)
+        k += 1
+    print(prime_f)
+    return (print(prime_f[-1]))
+
+
+problem3(600851475143)
