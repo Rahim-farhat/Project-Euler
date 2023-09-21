@@ -48,4 +48,41 @@ def problem3(x):
     return (print(prime_f[-1]))
 
 
-problem3(600851475143)
+def problem4():
+    def ispalindrome(x):
+        x = str(x)
+        pal = True
+        for i in range(0, len(x)//2, 1):
+            if (x[i] != x[-1-i]):
+                pal = False
+        return (pal)
+
+    pal = []
+    for i in range(999, 99, -1):
+        for j in range(999, 99, -1):
+            if (ispalindrome(i*j)):
+                pal.append(i*j)
+    max = pal[0]
+    for item in pal:
+        if item > max:
+            max = item
+
+    return print(max)
+
+
+def problem5(x):
+    k = 0
+    while True:
+        u = x-1
+        k += 1
+        while (u > 1):
+            if (x*k % (u) == 0):
+                u -= 1
+            else:
+                break
+        if (u < 2):
+            break
+    print(x*k)
+
+
+problem5(20)
