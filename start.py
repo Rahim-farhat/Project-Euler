@@ -237,4 +237,18 @@ def problem11():
     return (print(max))
 
 
-problem11()
+def problem12():
+    k = 0
+    div = 0
+    x = 0
+    while (div < 501):
+        k += 1
+        x += k
+        div = 0
+        for i in range(1, x+1):
+            if (x % i == 0):
+                div += 1
+    print(x)
+
+
+problem12()
