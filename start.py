@@ -85,4 +85,16 @@ def problem5(x):
     print(x*k)
 
 
-problem5(20)
+def problem6(x):
+    s1 = 0
+    s2 = 0
+    for i in range(x+1):
+        s1 += i
+    s1 = s1**2
+    for i in range(x+1):
+        s2 += i**2
+    s = s1-s2
+    return (print(s))
+
+
+problem6(100)
