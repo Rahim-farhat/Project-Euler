@@ -359,3 +359,21 @@ def problem13():
         s += int(item)
     s = str(s)
     print(s[:10])
+
+
+def problem14(x):
+    max = 0
+    for i in range(1, x):
+        k = 1
+        ix = i
+        while (ix != 1):
+            if (ix % 2 == 0):
+                ix = ix//2
+                k += 1
+            else:
+                ix = (3*ix)+1
+                k += 1
+        if (max < k):
+            max = k
+            num = i
+    print(f"the number with biggest chain under {x} is {num}")
