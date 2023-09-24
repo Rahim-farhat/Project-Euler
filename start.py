@@ -396,6 +396,7 @@ def problem15(w):
 
 
 def problem16(x):
+    # x is the exponential value of 2
     n = str(2**x)
     s = 0
     for i in range(len(n)):
@@ -403,4 +404,63 @@ def problem16(x):
     print(s)
 
 
-problem16(1000)
+def problem17(w):
+    numbers_dict = {
+        0: "",
+        1: "one",
+        2: "two",
+        3: "three",
+        4: "four",
+        5: "five",
+        6: "six",
+        7: "seven",
+        8: "eight",
+        9: "nine",
+        10: "ten",
+        11: "eleven",
+        12: "twelve",
+        13: "thirteen",
+        14: "fourteen",
+        15: "fifteen",
+        16: "sixteen",
+        17: "seventeen",
+        18: "eighteen",
+        19: "nineteen",
+        20: "twenty",
+        30: "thirty",
+        40: "forty",
+        50: "fifty",
+        60: "sixty",
+        70: "seventy",
+        80: "eighty",
+        90: "ninety",
+        100: "hundred",
+        1000: "onethousand"
+    }
+
+    def num_to_alpha(x):
+        ch = str(x)
+        alpha = ""
+        if (len(ch) == 1 or x == 1000 or (len(ch) == 2 and ch[0] == "1")):
+            alpha = numbers_dict[x]
+        elif (len(ch) == 2):
+            alpha += numbers_dict[int(ch[0])*10]
+            alpha += numbers_dict[int(ch[1])]
+        elif (len(ch) == 3):
+            alpha += numbers_dict[int(ch[0])]+numbers_dict[100]
+
+            if (ch[1] == "1" or (ch[1] == "0" and ch[2] != "0")):
+                alpha += "and"+numbers_dict[int(ch[1:])]
+            elif (ch[1] != "0"):
+                alpha += "and"+numbers_dict[int(ch[1])*10]
+                alpha += numbers_dict[int(ch[2])]
+        return alpha
+    sentence = ""
+
+    for i in range(1, w+1):
+        sentence += num_to_alpha(i)
+    print(sentence)
+    return (print(len(sentence)))
+
+
+problem17(1000)
