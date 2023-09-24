@@ -377,3 +377,22 @@ def problem14(x):
             max = k
             num = i
     print(f"the number with biggest chain under {x} is {num}")
+
+
+def problem15(w):
+    # w is the size of the grid (w=2 if the grid is 2*2)
+    # the path takes (the grid size *2) steps I assumed
+    # we gonna combine the number of steps with the nummber of possible moves (2 down and right) we use one and the other takes the place
+    # we combine the number of steps with itshalf(because half the steps are down and half right)
+    def fact(n):
+        x = 1
+        for i in range(1, n+1):
+            x *= i
+        return x
+    steps_num = w*2
+
+    n_pathes = (fact(steps_num)//(fact(steps_num-w)*fact(w)))
+    print(n_pathes)
+
+
+problem15(20)
