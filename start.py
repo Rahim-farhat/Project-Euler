@@ -395,4 +395,12 @@ def problem15(w):
     print(n_pathes)
 
 
-problem15(20)
+def problem16(x):
+    n = str(2**x)
+    s = 0
+    for i in range(len(n)):
+        s += int(n[i])
+    print(s)
+
+
+problem16(1000)
