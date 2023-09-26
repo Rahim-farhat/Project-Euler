@@ -499,4 +499,44 @@ def problem18():
     print(mylist[0][0])
 
 
-problem18()
+def problem19():
+    months = {1: 31, 2: 28, 3: 31, 4: 30, 5: 31, 6: 30,
+              7: 31, 8: 31, 9: 30, 10: 31, 11: 30, 12: 31}
+
+    year = 1900
+    day = 1
+
+    def leap(x):
+        leap = False
+        if (x % 4 == 0):
+            leap = True
+        if (x % 100 == 0):
+            leap = False
+            if (x % 400 == 0):
+                leap = True
+        return leap
+
+    for i in months:
+        if (i == 2 and leap(year)):
+            day += 29
+        else:
+            day += months[i]
+    year += 1
+
+    day = day % 7  # result is 2 its tuesday on 1 jan 1901
+
+    sundays_first = 0
+    while (year < 2001):
+        for i in months:
+            if (i == 2 and leap(year)):
+                day += 29
+            else:
+                day += months[i]
+            if (day % 7 == 0):
+                sundays_first += 1
+        year += 1
+
+    print(sundays_first)
+
+
+problem19()
