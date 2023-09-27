@@ -539,4 +539,19 @@ def problem19():
     print(sundays_first)
 
 
-problem19()
+def problem20(x):
+    def fact(w):
+        n = 1
+        for i in range(w, 0, -1):
+            n *= i
+        return str(n)
+
+    ch = fact(x)
+    s = 0
+    for i in ch:
+        s += int(i)
+
+    print(s)
+
+
+problem20(100)
