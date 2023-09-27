@@ -554,4 +554,32 @@ def problem20(x):
     print(s)
 
 
-problem20(100)
+def problem21():
+    amicables = []
+
+    def sum_divs(i):
+        divs = []
+        for j in range(1, i):
+            if (i % j == 0):
+                divs.append(j)
+        s = 0
+        for item in divs:
+            s += item
+        return (s)
+
+    for i in range(1, 10000):
+        if (i in amicables):
+            continue
+        elif (i == sum_divs(sum_divs(i)) and sum_divs(i) != i):
+            amicables.append(i)
+            amicables.append(sum_divs(i))
+    print(amicables)
+
+    sum = 0
+    for item in amicables:
+        sum += item
+
+    print(sum)
+
+
+problem21()
