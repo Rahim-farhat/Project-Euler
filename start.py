@@ -582,4 +582,38 @@ def problem21():
     print(sum)
 
 
-problem21()
+def problem22():
+    names_list = []
+    names_listed = []
+    try:
+        with open("0022_names.txt", 'r') as file:
+            for line in file:
+                names = line.split(",")
+                names_list.extend(names)
+
+    except FileNotFoundError:
+        print("File not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+    for item in names_list:
+        names_listed.append(item[1:-1])
+
+    names_listed.sort()
+
+    def alpha_value(x):
+        alphabet_dict = {
+            'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10, 'K': 11, 'L': 12, 'M': 13, 'N': 14, 'O': 15, 'P': 16, 'Q': 17, 'R': 18, 'S': 19, 'T': 20, 'U': 21, 'V': 22, 'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
+        s = 0
+        for i in x:
+            s += alphabet_dict[i]
+        return s
+    sum = 0
+    index = 1
+    for item in names_listed:
+        sum += alpha_value(item)*index
+        index += 1
+    print(sum)
+
+
+problem22()
