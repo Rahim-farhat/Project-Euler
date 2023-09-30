@@ -113,4 +113,27 @@ def problem25():
     print(i)
 
 
-problem25()
+def problem26():
+    for i in range(600, 660):
+        ch = str(1/i)
+        ch = ch[2:]
+    # suspended due to shortness of number of decimals after zero
+
+
+problem26()
+
+
+def problem28(x):
+    k = 2
+    n = 1
+    s = 1
+    while (k < x):
+        for i in range(4):
+            n += k
+            s += n
+        k += 2
+
+    print(s)
+
+
+problem28(1001)
