@@ -136,4 +136,13 @@ def problem28(x):
     print(s)
 
 
-problem28(1001)
+def problem29():
+    dis_terms = []
+    for i in range(2, 101):
+        for j in range(2, 101):
+            if (i**j not in dis_terms):
+                dis_terms.append(i**j)
+    print(len(dis_terms))
+
+
+problem29()
