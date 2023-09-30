@@ -145,4 +145,20 @@ def problem29():
     print(len(dis_terms))
 
 
-problem29()
+def problem30():
+    num = []
+    for i in range(2, 1000000):  # added zeros until the result isnt changing anymore
+        ch = str(i)
+        s = 0
+        for j in ch:
+            s += int(j)**5
+        if (s == i):
+            num.append(i)
+    print(num)
+    sum = 0
+    for item in num:
+        sum += item
+    print(sum)
+
+
+problem30()
