@@ -90,4 +90,27 @@ def problem23():
     # print(string)
 
 
-problem23()
+def problem24():
+    from itertools import permutations
+    digits = '0123456789'
+    all_permutations = list(permutations(digits))
+    all_permutations_strings = [''.join(permutation)
+                                for permutation in all_permutations]
+    all_permutations_strings.sort()
+    print(all_permutations_strings[999999])
+
+
+def problem25():
+    f = 1
+    fdp = 1
+    fp = 1
+    i = 2
+    while (len(str(f)) < 1000):
+        i += 1
+        f = fp+fdp
+        fdp = fp
+        fp = f
+    print(i)
+
+
+problem25()
