@@ -161,4 +161,34 @@ def problem30():
     print(sum)
 
 
-problem30()
+def problem32():
+    def contains_digit(x, y):
+        for l in str(x):
+            for m in str(y):
+                if (l == m):
+                    return True
+        return False
+
+    def repeated_digit(x):
+        for l in str(x):
+            if (str(x).count(l) > 1 or l == "0"):
+                return True
+        return False
+    products = []
+    for i in range(1, 9999):
+        for j in range(i, 9999):
+            if (contains_digit(i, j) is True or repeated_digit(i) is True or repeated_digit(j) is True):
+                continue
+            elif (contains_digit(i*j, j) is True or contains_digit(i*j, i) is True or repeated_digit(i*j) is True):
+                continue
+            if (len(str(i))+len(str(j))+len(str(i*j)) == 9):
+                print(i, j, i*j)
+                if (i*j not in products):
+                    products.append(i*j)
+    s = 0
+    for item in products:
+        s += item
+    print(s)
+
+
+problem32()
