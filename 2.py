@@ -191,4 +191,40 @@ def problem32():
     print(s)
 
 
-problem32()
+def problem33():
+    num = 1
+    den = 1
+    for i in range(11, 100):
+        if ((str(i))[-1] == "0"):
+            continue
+        for j in range(i+1, 100):
+            if ((str(j))[-1] == "0"):
+                continue
+            for k in range(1, 10):
+                ist = str(i)
+                jst = str(j)
+                if (ist.find(str(k)) >= 0 and jst.find(str(k)) >= 0):
+                    if (ist.find(str(k)) == 0):
+                        ist = ist[1]
+                    else:
+                        ist = ist[0]
+                    if (jst.find(str(k)) == 0):
+                        jst = jst[1]
+                    else:
+                        jst = jst[0]
+
+                    if (i/j == int(ist)/int(jst)):
+                        print(i, "/", j, ";", ist, "/", jst)
+                        num *= i
+                        den *= j
+    print(num, den)
+    for m in range(2, num):
+        while ((den % m == 0) and (num % m == 0)):
+            den = den//m
+            num = num//m
+        if (m > num):
+            break
+    print(num, "/", den)
+
+
+problem33()
