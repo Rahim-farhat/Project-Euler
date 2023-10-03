@@ -25,17 +25,16 @@ def problem3(x):
     prime_f = []
 
     def isprime(n):
-
-        if (n <= 1):
+        if n <= 1:
             return False
-        if (n <= 3):
+        if n <= 3:
             return True
-        if (n % 2 == 0 or n % 3 == 0):
-            for divisor in range(5, int(math.sqrt(n)) + 1, 6):
-                if n % divisor == 0 or n % (divisor + 2) == 0:
-                    return False
+        if n % 2 == 0 or n % 3 == 0:
+            return False
+        for divisor in range(5, int(math.sqrt(n)) + 1, 6):
+            if n % divisor == 0 or n % (divisor + 2) == 0:
+                return False
         return True
-
     k = 1
     while (x > 1):
         while (isprime(k) is False):

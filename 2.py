@@ -245,4 +245,33 @@ def problem34():
     print(sum)
 
 
-problem34()
+def problem35():
+    import math
+
+    def isprime(n):
+        if n <= 1:
+            return False
+        if n <= 3:
+            return True
+        if n % 2 == 0 or n % 3 == 0:
+            return False
+        for divisor in range(5, int(math.sqrt(n)) + 1, 6):
+            if n % divisor == 0 or n % (divisor + 2) == 0:
+                return False
+        return True
+    count = 0
+    for i in range(1, 1000000):
+        test = True
+        string = str(i)
+        for j in range(len(string)):
+            if (isprime(int(string)) is False):
+                test = False
+                break
+            string = string[1:]+string[0]
+
+        if (test == True):
+            count += 1
+    print(count)
+
+
+problem35()
