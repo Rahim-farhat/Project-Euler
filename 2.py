@@ -227,4 +227,22 @@ def problem33():
     print(num, "/", den)
 
 
-problem33()
+def problem34():
+    def fact(x):
+        m = 1
+        for j in range(1, x+1):
+            m = m*j
+        return m
+    sum = 0
+    for i in range(3, 100000):
+        string = str(i)
+        s = 0
+        for l in string:
+            s += fact(int(l))
+        if (s == i):
+            sum += i
+            print(i)
+    print(sum)
+
+
+problem34()
