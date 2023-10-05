@@ -274,4 +274,41 @@ def problem35():
     print(count)
 
 
-problem35()
+def problem37():
+    import math
+    num = []
+    n = 10
+
+    def isprime(n):
+        if n <= 1:
+            return False
+        if n <= 3:
+            return True
+        if n % 2 == 0 or n % 3 == 0:
+            return False
+        for divisor in range(5, int(math.sqrt(n)) + 1, 6):
+            if n % divisor == 0 or n % (divisor + 2) == 0:
+                return False
+        return True
+
+    while (len(num) < 11):
+        n += 1
+        if (isprime(n)):
+            test = True
+            nu = str(n)
+            for i in range(1, len(nu)):
+                if (isprime(int(nu[i:])) == False):
+                    test = False
+            for i in range(1, len(nu)):
+                if (isprime(int(nu[:-i])) == False):
+                    test = False
+            if (test is True):
+                num.append(n)
+    print(num)
+    s = 0
+    for item in num:
+        s += item
+    print(s)
+
+
+problem37()
